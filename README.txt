@@ -48,3 +48,26 @@ sudo apt install certbot python3-certbot-apache
 
 14. Request and install ssl on your site with certbot
 sudo certbot --apache
+
+
+// to configure the dns
+15. cd /etc/apcache2/sites-available
+
+16. open 000-default.conf
+vi 000-default.conf
+
+17. change the following ( DocumentRoot /var/www/html ) to
+ DocumentRoot /var/www/html/wordpress
+
+18. Command to restart/reload apache server
+sudo systemctl restart apache2
+OR
+sudo systemctl reload apache2
+
+19. to add the domain, follow this thing
+add Alias like : 
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html/wordpress
+Alias "wordpress" "/var/www/html/wordpress"
+
+And add the domain : 
